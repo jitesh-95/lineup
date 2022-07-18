@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+.homeIcon {
+  animation: loadIcon 2s ease 5s forwards;
+  width: 40%;
+  position: absolute;
+  right: 8%;
+  top: 30%;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.homeIcon2 {
+  opacity: 0;
+  position: absolute;
+  right: 8%;
+  top: 30%;
+  width: 40%;
+  animation: loadIcon2 2s ease 5.3s forwards;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#logoName {
+  animation: loadIcon2 2s ease 5.3s forwards;
+  position: absolute;
+  top: 45%;
+  opacity: 0;
+}
+#inbox {
+  animation: loadIcon 1.8s ease 4.8s forwards;
+}
+@keyframes loadIcon {
+  100% {
+    opacity: 0;
+    /* display: none; */
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+@keyframes loadIcon2 {
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@media all and (min-width: 70px) and (max-width: 456px) {
+  .homeIcon {
+    width: 80%;
+    top: 100%;
+  }
+  .homeIcon2 {
+    width: 80%;
+    top: 100%;
+  }
+}
+@media all and (min-width: 427px) and (max-width: 767px) {
+  .homeIcon {
+    width: 60%;
+    top: 120%;
+    right: 18%;
+  }
+  .homeIcon2 {
+    width: 60%;
+    top: 120%;
+    right: 18%;
   }
 }

@@ -1,0 +1,112 @@
+{
+  "posts": [
+    {
+      "0": {
+        "subTaskTitle": "Task 1: Sub task 1",
+        "status": false
+      },
+      "1": {
+        "subTaskTitle": "Task 1: Sub task 2",
+        "status": true
+      },
+      "id": 1,
+      "title": "Task 1",
+      "status": "In-Progress",
+      "description": "Description for Task 1",
+      "tags": [
+        "Others"
+      ],
+      "date": "Jul-17-2022",
+      "subTasks": [
+        {
+          "subTaskTitle": "Task 1: Sub task 1",
+          "status": true
+        },
+        {
+          "subTaskTitle": "Task 1: Sub task 2",
+          "status": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Task 3",
+      "status": "Todo",
+      "description": "Description for Task 3",
+      "tags": [
+        "Personal",
+        "Others",
+        "Official"
+      ],
+      "date": "Jul-18-2022",
+      "subTasks": [
+        {
+          "subTaskTitle": "Task 3: Sub task 1",
+          "status": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Task 4",
+      "status": "Todo",
+      "description": "Description for Task 4",
+      "tags": [
+        "Others"
+      ],
+      "date": "Jul-18-2022",
+      "subTasks": [
+        {
+          "subTaskTitle": "Task 4: Sub task 1",
+          "status": true
+        },
+        {
+          "subTaskTitle": "Task 4: Sub task 2",
+          "status": true
+        },
+        {
+          "subTaskTitle": "Task 4: Sub task 3",
+          "status": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Task 6",
+      "status": "Done",
+      "description": "Description for Task 6",
+      "tags": [
+        "Personal"
+      ],
+      "date": "Jul-17-2022",
+      "subTasks": [
+        {
+          "subTaskTitle": "Task 6: Sub task 1",
+          "status": true
+        },
+        {
+          "subTaskTitle": "Task 6: Sub task 2",
+          "status": false
+        }
+      ]
+    },
+    {
+      "title": "Want to learn",
+      "status": "In-Progress",
+      "description": "Something great",
+      "tags": [
+        "Personal",
+        "Official",
+        "Others"
+      ],
+      "subTasks": [
+        {
+          "subTaskTitle": "communication skills",
+          "status": true
+        }
+      ],
+      "date": "Jul-18-2022",
+      "id": 8
+    }
+  ]
+}
