@@ -33,7 +33,7 @@
 
 ![Screenshot (55)](https://user-images.githubusercontent.com/101583918/179615229-70a7aaee-93c1-4c90-9638-914284ea4b2b.png)
 
-# if You like it please feel free to give it a <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/512px-Star_icon_stylized.svg.png"/>
+# if You like it please feel free to give it a <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/512px-Star_icon_stylized.svg.png" width="10%"/>
 
 <a href="https://www.linkedin.com/in/jitesh-sirohi-ba4636136/">
   <img align="center" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="https://www.linkedin.com/in/jitesh-sirohi-ba4636136/" />
