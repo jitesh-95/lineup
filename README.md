@@ -1,7 +1,5 @@
 ## application [Line up](https://lineup-iota.vercel.app/)
 
-## You need to run the local server at port 3001
-
 ### for login please use below credentials only
 
 `{
