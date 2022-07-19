@@ -4,9 +4,7 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
@@ -22,8 +20,8 @@ export default function Login() {
   const Loading = useSelector((state) => state.authReducer.isLoading);
   const toast = useToast();
   const navigate = useNavigate();
-  const [user, setUser] = useState("");
-  const [pass, setPass] = useState("");
+  const [user, setUser] = useState("masai-school");
+  const [pass, setPass] = useState("secret");
   const dispatch = useDispatch();
   const [valid, setValid] = useState({
     password: false,
