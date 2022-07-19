@@ -20,7 +20,7 @@ import axios from "axios";
 export const getTasks = () => (dispatch) => {
   dispatch({ type: GET_TASK_REQUEST });
   return axios
-    .get(`http://localhost:3001/posts`)
+    .get(`https://lineupserver.herokuapp.com/posts`)
     .then((r) => dispatch({ type: GET_TASK_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: GET_TASK_FAILURE, payload: e }));
 };
@@ -28,7 +28,7 @@ export const getTasks = () => (dispatch) => {
 export const updateTasks = (id, payload) => (dispatch) => {
   dispatch({ type: UPDATE_TASKS_REQUEST });
   return axios
-    .patch(`http://localhost:3001/posts/${id}`, payload)
+    .patch(`https://lineupserver.herokuapp.com/posts/${id}`, payload)
     .then((r) => dispatch({ type: UPDATE_TASKS_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: UPDATE_TASKS_FAILURE, payload: e }));
 };
@@ -36,7 +36,7 @@ export const updateTasks = (id, payload) => (dispatch) => {
 export const addNewTask = (payload) => (dispatch) => {
   dispatch({ type: ADD_TASKS_REQUEST });
   return axios
-    .post(`http://localhost:3001/posts`, payload)
+    .post(`https://lineupserver.herokuapp.com/posts`, payload)
     .then((r) => dispatch({ type: ADD_TASKS_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: ADD_TASKS_FAILURE, payload: e }));
 };
@@ -44,7 +44,7 @@ export const addNewTask = (payload) => (dispatch) => {
 export const deleteTask = (id) => (dispatch) => {
   dispatch({ type: DELETE_TASKS_REQUEST });
   return axios
-    .delete(`http://localhost:3001/posts/${id}`)
+    .delete(`https://lineupserver.herokuapp.com/posts/${id}`)
     .then((r) => dispatch({ type: DELETE_TASKS_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: DELETE_TASKS_FAILURE, payload: e }));
 };
@@ -52,7 +52,7 @@ export const deleteTask = (id) => (dispatch) => {
 export const updateSubTasksStatus = (id, payload) => (dispatch) => {
   dispatch({ type: UPDATE_SUBTASKS_STATUS_REQUEST });
   return axios
-    .patch(`http://localhost:3001/posts/${id}`, payload)
+    .patch(`https://lineupserver.herokuapp.com/posts/${id}`, payload)
     .then((r) =>
       dispatch({ type: UPDATE_SUBTASKS_STATUS_SUCCESS, payload: r.data })
     )

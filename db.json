@@ -1,21 +1,11 @@
 {
   "posts": [
     {
-      "0": {
-        "subTaskTitle": "Task 1: Sub task 1",
-        "status": false
-      },
-      "1": {
-        "subTaskTitle": "Task 1: Sub task 2",
-        "status": true
-      },
       "id": 1,
       "title": "Task 1",
-      "status": "In-Progress",
+      "status": "Todo",
       "description": "Description for Task 1",
-      "tags": [
-        "Others"
-      ],
+      "tags": ["Others"],
       "date": "Jul-17-2022",
       "subTasks": [
         {
@@ -29,43 +19,23 @@
       ]
     },
     {
-      "id": 3,
-      "title": "Task 3",
-      "status": "Todo",
-      "description": "Description for Task 3",
-      "tags": [
-        "Personal",
-        "Others",
-        "Official"
-      ],
-      "date": "Jul-18-2022",
-      "subTasks": [
-        {
-          "subTaskTitle": "Task 3: Sub task 1",
-          "status": true
-        }
-      ]
-    },
-    {
       "id": 4,
-      "title": "Task 4",
-      "status": "Todo",
+      "title": "new task",
+      "status": "In-Progress",
       "description": "Description for Task 4",
-      "tags": [
-        "Others"
-      ],
+      "tags": ["Others"],
       "date": "Jul-18-2022",
       "subTasks": [
-        {
-          "subTaskTitle": "Task 4: Sub task 1",
-          "status": true
-        },
         {
           "subTaskTitle": "Task 4: Sub task 2",
           "status": true
         },
         {
           "subTaskTitle": "Task 4: Sub task 3",
+          "status": false
+        },
+        {
+          "subTaskTitle": "something",
           "status": false
         }
       ]
@@ -75,9 +45,7 @@
       "title": "Task 6",
       "status": "Done",
       "description": "Description for Task 6",
-      "tags": [
-        "Personal"
-      ],
+      "tags": ["Personal"],
       "date": "Jul-17-2022",
       "subTasks": [
         {
@@ -97,20 +65,34 @@
     {
       "title": "Want to learn",
       "status": "In-Progress",
-      "description": "Something great",
-      "tags": [
-        "Personal",
-        "Official",
-        "Others"
-      ],
+      "description": "Something related to IT",
+      "tags": ["Personal", "Official", "Others"],
       "subTasks": [
         {
           "subTaskTitle": "communication skills",
           "status": true
+        },
+        {
+          "subTaskTitle": "coding",
+          "status": false
         }
       ],
       "date": "Jul-18-2022",
       "id": 8
+    },
+    {
+      "title": "need to go delhi",
+      "status": "Todo",
+      "description": "for buy new books",
+      "tags": ["Personal"],
+      "subTasks": [
+        {
+          "subTaskTitle": "physics book",
+          "status": false
+        }
+      ],
+      "date": "Jul-19-2022",
+      "id": 9
     }
   ]
 }
