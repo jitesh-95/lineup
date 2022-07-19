@@ -95,7 +95,14 @@ export default function Signup() {
       !Loading
     ) {
       dispatch(register(state)).then((r) => {
-        if (!r.payload.data.error) {
+        if (r.type === "SIGNUP_ERROR") {
+          toast({
+            title: "Something Went Wrong",
+            status: "error",
+            duration: 2000,
+            isClosable: true,
+          });
+        } else if (!r.payload.data.error) {
           toast({
             title: "Account created.",
             description: "We've created your account for you.",
@@ -104,7 +111,7 @@ export default function Signup() {
             isClosable: true,
           });
           navigate("/login", { replace: true });
-        } else {
+        } else if (r.payload.data.error) {
           toast({
             title: "Registration failed",
             description: "User already exists. PLease Login",

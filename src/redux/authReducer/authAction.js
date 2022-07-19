@@ -15,7 +15,11 @@ import axios from "axios";
 export const register = (payload) => (dispatch) => {
   dispatch({ type: SIGNUP_REQUEST });
   return axios
-    .post("https://masai-api-mocker.herokuapp.com/auth/register", payload)
+    .post("https://masai-api-mocker.herokuapp.com/auth/register", payload, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
     .then((r) => dispatch({ type: SIGNUP_SUCCESS, payload: r }))
     .catch((e) => dispatch({ type: SIGNUP_ERROR, payload: e }));
 };

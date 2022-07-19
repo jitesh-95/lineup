@@ -82,10 +82,14 @@
       "subTasks": [
         {
           "subTaskTitle": "Task 6: Sub task 1",
-          "status": true
+          "status": false
         },
         {
           "subTaskTitle": "Task 6: Sub task 2",
+          "status": true
+        },
+        {
+          "subTaskTitle": "Task 6: Sub task 3",
           "status": false
         }
       ]
