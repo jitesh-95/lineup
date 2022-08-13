@@ -1,27 +1,8 @@
 ## application [Line up](https://lineup-iota.vercel.app/)
 
-### for login please use below credentials only
-
-`{
-  "password": "secret",
-  "username": "masai-school"
-}`
-
-### for signup Please use below credentials only 
-
-`{
-  "name": "MASAI School",
-  "email": "hello@masai.com"
-  "password": "secret",
-  "username": "masai-school",
-  "mobile": "9876543210",
-  "description": "A Transformation in education!" 
-}`
-
 ### a view of application
 
 ![Screenshot (50)](https://user-images.githubusercontent.com/101583918/179615041-59141e65-5f22-437b-b852-f481a03e82a5.png)
-
 
 ![Screenshot (51)](https://user-images.githubusercontent.com/101583918/179615103-02e3cd52-d288-4c28-960a-ddf6e50d788e.png)
 
@@ -37,5 +18,3 @@
 
 <a href="https://www.linkedin.com/in/jitesh-sirohi-ba4636136/">
   <img align="center" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="https://www.linkedin.com/in/jitesh-sirohi-ba4636136/" />
-
-
