@@ -11,18 +11,26 @@ import {
   useColorModeValue,
   useToast,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserDetails, login } from "../redux/authReducer/authAction";
+import { checkUser } from "../redux/authReducer/authAction";
 
 export default function Login() {
   const Loading = useSelector((state) => state.authReducer.isLoading);
+  const users = useSelector((state) => state.authReducer.userData);
   const toast = useToast();
   const navigate = useNavigate();
-  const [user, setUser] = useState("masai-school");
-  const [pass, setPass] = useState("secret");
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!users.length) {
+      dispatch(checkUser());
+    }
+  }, []);
+
   const [valid, setValid] = useState({
     password: false,
     username: false,
@@ -31,39 +39,31 @@ export default function Login() {
   const handleSubmit = () => {
     if (!user) setValid({ username: true });
     if (!pass) setValid({ password: true });
-    const params = {
-      password: pass,
-      username: user,
-    };
-    if (user && pass) {
-      dispatch(login(params)).then((r) => {
-        if (r.type === "LOGIN_SUCCESS") {
-          toast({
-            title: "Login Success",
-            status: "success",
-            duration: 2000,
-            isClosable: true,
-          });
-          navigate("/app", { replace: true });
-        } else if (r.type === "LOGIN_ERROR") {
-          toast({
-            title: "Login failed",
-            description: "Invalid login creadentials",
-            status: "error",
-            duration: 2000,
-            isClosable: true,
-          });
-        }
-        dispatch(getUserDetails(r.payload, user)).then((r) => {
-          let data = {
-            name: r.payload.name,
-            email: r.payload.email,
-            username: r.payload.username,
-          };
-          localStorage.setItem("user", JSON.stringify(data));
-        });
+
+    // checking if the user is present or not
+    let currentUser = users.find((item) => {
+      if (item.username === user && item.password === pass) {
+        return user;
+      }
+    });
+
+    if (!currentUser) {
+      return toast({
+        title: "Invalid Credentials.",
+        description: "Try again.",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
       });
     }
+    navigate("/app", { replace: true });
+    localStorage.setItem("token", currentUser.token);
+    const userdata = {
+      username: currentUser.username,
+      email: currentUser.email,
+      name: currentUser.name,
+    };
+    localStorage.setItem("user", JSON.stringify(userdata));
   };
 
   const handleKeyPress = (e) => {

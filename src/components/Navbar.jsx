@@ -3,10 +3,9 @@ import { Flex, Button, useColorMode, Tooltip, Text } from "@chakra-ui/react";
 
 import { BsFillLightbulbOffFill, BsLightbulb } from "react-icons/bs";
 import Sidebar from "./Sidebar";
-import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const auth = useSelector((state) => state.authReducer.isAuth);
+  let Token = localStorage.getItem("token");
 
   const { colorMode, toggleColorMode } = useColorMode();
   return (
@@ -23,7 +22,7 @@ const Navbar = () => {
       align="center"
       mb={5}
     >
-      {auth && <Sidebar />}
+      {Token && <Sidebar />}
       <Text
         style={{ fontFamily: "Freehand, cursive" }}
         fontSize={{ base: "3xl", sm: "3xl", lg: "4xl", xl: "5xl" }}

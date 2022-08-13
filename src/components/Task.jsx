@@ -105,33 +105,35 @@ const Task = ({
       >
         {description}
       </Text>
-      <Flex
-        direction="column"
-        p="0.5rem 0.2rem 0.5rem 1rem"
-        gap={2}
-        bg={subTaskBG}
-        borderRadius="6px"
-      >
-        <CheckboxGroup
-          value={checkbox}
-          onChange={(value) => handleOnchange(value)}
+      {subTasks.length > 0 && (
+        <Flex
+          direction="column"
+          p="0.5rem 0.2rem 0.5rem 1rem"
+          gap={2}
+          bg={subTaskBG}
+          borderRadius="6px"
         >
-          {subTasks?.map((subtask, index) => (
-            <Checkbox
-              textDecoration={
-                checkbox.includes(subtask.subTaskTitle) ? "line-through" : ""
-              }
-              opacity={checkbox.includes(subtask.subTaskTitle) ? 0.5 : 1}
-              key={index}
-              fontWeight={500}
-              value={subtask.subTaskTitle}
-              colorScheme="green"
-            >
-              {subtask.subTaskTitle}
-            </Checkbox>
-          ))}
-        </CheckboxGroup>
-      </Flex>
+          <CheckboxGroup
+            value={checkbox}
+            onChange={(value) => handleOnchange(value)}
+          >
+            {subTasks?.map((subtask, index) => (
+              <Checkbox
+                textDecoration={
+                  checkbox.includes(subtask.subTaskTitle) ? "line-through" : ""
+                }
+                opacity={checkbox.includes(subtask.subTaskTitle) ? 0.5 : 1}
+                key={index}
+                fontWeight={500}
+                value={subtask.subTaskTitle}
+                colorScheme="green"
+              >
+                {subtask.subTaskTitle}
+              </Checkbox>
+            ))}
+          </CheckboxGroup>
+        </Flex>
+      )}
       <Text fontSize="xs" textAlign="end" opacity={0.6}>
         {date}
       </Text>

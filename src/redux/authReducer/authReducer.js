@@ -1,7 +1,7 @@
 import {
-  LOGIN_ERROR,
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
+  CHECK_REGISTER_USER_ERROR,
+  CHECK_REGISTER_USER_REQUEST,
+  CHECK_REGISTER_USER_SUCCESS,
   LOGOUT,
   SIGNUP_ERROR,
   SIGNUP_REQUEST,
@@ -14,6 +14,7 @@ const initialState = {
   isError: false,
   token: Token ? Token : "",
   isAuth: Token ? true : false,
+  userData: [],
 };
 
 export const authReducer = (state = initialState, { type, payload }) => {
@@ -27,20 +28,21 @@ export const authReducer = (state = initialState, { type, payload }) => {
     case SIGNUP_ERROR: {
       return { ...state, isLoading: false };
     }
-    //login
-    case LOGIN_REQUEST: {
-      return { ...state, isLoading: true };
-    }
-    case LOGIN_SUCCESS: {
-      localStorage.setItem("token", payload);
-      return { ...state, isLoading: false, token: payload, isAuth: true };
-    }
-    case LOGIN_ERROR: {
-      return { ...state, isLoading: false, token: "", isAuth: false };
-    }
+    //logout
     case LOGOUT: {
       localStorage.removeItem("token", payload);
       return { ...state, isLoading: false, token: "", isAuth: false };
+    }
+
+    //checkuser
+    case CHECK_REGISTER_USER_REQUEST: {
+      return { ...state, isLoading: true };
+    }
+    case CHECK_REGISTER_USER_SUCCESS: {
+      return { ...state, isLoading: false, userData: payload };
+    }
+    case CHECK_REGISTER_USER_ERROR: {
+      return { ...state, isError: true, isLoading: false };
     }
 
     default:

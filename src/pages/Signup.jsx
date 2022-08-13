@@ -19,7 +19,9 @@ import { useReducer, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { register } from "../redux/authReducer/authAction";
+import { checkUser, register } from "../redux/authReducer/authAction";
+import { useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -60,6 +62,7 @@ const initialState = {
   username: "",
   password: "",
   mobile: "",
+  token: uuidv4(),
 };
 
 export default function Signup() {
@@ -70,6 +73,13 @@ export default function Signup() {
   const dispatch = useDispatch();
 
   const Loading = useSelector((state) => state.authReducer.isLoading);
+  const users = useSelector((state) => state.authReducer.userData);
+
+  useEffect(() => {
+    if (!users.length) {
+      dispatch(checkUser());
+    }
+  }, []);
 
   const [valid, setValid] = useState({
     name: false,
@@ -94,32 +104,39 @@ export default function Signup() {
       state.mobile.length === 10 &&
       !Loading
     ) {
+      //checking if the user is alrady signed up or not
+      let currentUser = users
+        .map((user) => user.email)
+        .find((item) => item === state.email);
+      if (currentUser) {
+        return toast({
+          title: "Registration failed",
+          description: "User already exists. PLease Login",
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+        });
+      }
+
+      // IF USER IS NOT SIGNED-UP THEN DISPATCH
       dispatch(register(state)).then((r) => {
+        console.log(r);
         if (r.type === "SIGNUP_ERROR") {
-          toast({
+          return toast({
             title: "Something Went Wrong",
             status: "error",
             duration: 2000,
             isClosable: true,
           });
-        } else if (!r.payload.data.error) {
-          toast({
-            title: "Account created.",
-            description: "We've created your account for you.",
-            status: "success",
-            duration: 2000,
-            isClosable: true,
-          });
-          navigate("/login", { replace: true });
-        } else if (r.payload.data.error) {
-          toast({
-            title: "Registration failed",
-            description: "User already exists. PLease Login",
-            status: "error",
-            duration: 2000,
-            isClosable: true,
-          });
         }
+        toast({
+          title: "Account created.",
+          description: "We've created your account for you.",
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+        });
+        navigate("/login", { replace: true });
       });
     }
   };

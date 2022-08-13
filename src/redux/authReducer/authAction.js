@@ -1,10 +1,7 @@
 import {
-  GET_USER_ERROR,
-  GET_USER_REQUEST,
-  GET_USER_SUCCESS,
-  LOGIN_ERROR,
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
+  CHECK_REGISTER_USER_ERROR,
+  CHECK_REGISTER_USER_REQUEST,
+  CHECK_REGISTER_USER_SUCCESS,
   LOGOUT,
   SIGNUP_ERROR,
   SIGNUP_REQUEST,
@@ -15,7 +12,7 @@ import axios from "axios";
 export const register = (payload) => (dispatch) => {
   dispatch({ type: SIGNUP_REQUEST });
   return axios
-    .post("https://masai-api-mocker.herokuapp.com/auth/register", payload, {
+    .post("https://near1499server.herokuapp.com/users", payload, {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
@@ -24,22 +21,16 @@ export const register = (payload) => (dispatch) => {
     .catch((e) => dispatch({ type: SIGNUP_ERROR, payload: e }));
 };
 
-export const login = (payload) => (dispatch) => {
-  dispatch({ type: LOGIN_REQUEST });
+export const checkUser = () => (dispatch) => {
+  dispatch({ type: CHECK_REGISTER_USER_REQUEST });
   return axios
-    .post("https://masai-api-mocker.herokuapp.com/auth/login", payload)
-    .then((r) => dispatch({ type: LOGIN_SUCCESS, payload: r.data.token }))
-    .catch((e) => dispatch({ type: LOGIN_ERROR, payload: e }));
-};
-
-export const getUserDetails = (payload, user) => (dispatch) => {
-  dispatch({ type: GET_USER_REQUEST });
-  return axios
-    .get(`https://masai-api-mocker.herokuapp.com/user/${user}`, {
-      headers: { Authorization: `Bearer ${payload}` },
-    })
-    .then((r) => dispatch({ type: GET_USER_SUCCESS, payload: r.data }))
-    .catch((e) => dispatch({ type: GET_USER_ERROR, payload }));
+    .get(`https://near1499server.herokuapp.com/users`)
+    .then((r) =>
+      dispatch({ type: CHECK_REGISTER_USER_SUCCESS, payload: r.data })
+    )
+    .catch((err) =>
+      dispatch({ type: CHECK_REGISTER_USER_ERROR, payload: err })
+    );
 };
 
 export const logout = () => (dispatch) => {

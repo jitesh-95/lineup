@@ -1,16 +1,15 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import { useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const auth = useSelector((state) => state.authReducer.isAuth);
+  let Token = localStorage.getItem("token");
   const navigate = useNavigate();
   const handleExplore = () => {
     navigate("/login");
   };
 
-  if (auth) {
+  if (Token) {
     return <Navigate to="/app" />;
   }
   return (
