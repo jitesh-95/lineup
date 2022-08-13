@@ -120,7 +120,6 @@ export default function Signup() {
 
       // IF USER IS NOT SIGNED-UP THEN DISPATCH
       dispatch(register(state)).then((r) => {
-        console.log(r);
         if (r.type === "SIGNUP_ERROR") {
           return toast({
             title: "Something Went Wrong",
