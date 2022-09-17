@@ -12,7 +12,7 @@ import axios from "axios";
 export const register = (payload) => (dispatch) => {
   dispatch({ type: SIGNUP_REQUEST });
   return axios
-    .post("https://near1499server.herokuapp.com/users", payload, {
+    .post("https://my-lineup-server.herokuapp.com/users", payload, {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
@@ -24,7 +24,7 @@ export const register = (payload) => (dispatch) => {
 export const checkUser = () => (dispatch) => {
   dispatch({ type: CHECK_REGISTER_USER_REQUEST });
   return axios
-    .get(`https://near1499server.herokuapp.com/users`)
+    .get(`https://my-lineup-server.herokuapp.com/users`)
     .then((r) =>
       dispatch({ type: CHECK_REGISTER_USER_SUCCESS, payload: r.data })
     )

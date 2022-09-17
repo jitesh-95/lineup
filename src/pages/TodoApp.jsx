@@ -19,7 +19,7 @@ const TodoApp = () => {
   const isLoading = useSelector((state) => state.appReducer.isLoading);
 
   const bg = useColorModeValue("gray.100", "gray.800");
-  const cardBG = useColorModeValue("white", "black");
+  const cardBG = useColorModeValue("rgba(255,255,255,0.4)", "blackAlpha.600");
 
   const filterByParams = (task) => {
     const paramsTags = searchParams.getAll("tags");

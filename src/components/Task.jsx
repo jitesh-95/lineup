@@ -33,6 +33,7 @@ const Task = ({
 }) => {
   const subTaskBG = useColorModeValue("blue.50", "blue.800");
   const desBg = useColorModeValue("gray.600", "gray.400");
+  const taskBG = useColorModeValue("white", "black");
   const dispatch = useDispatch();
 
   const [checkbox, setCheckbox] = useState(() => {
@@ -59,7 +60,7 @@ const Task = ({
   };
 
   return (
-    <Box boxShadow="md" p="0.5rem 1rem" mb="0.8rem">
+    <Box boxShadow="md" p="0.5rem 1rem" mb="0.8rem" bg={taskBG}>
       <Flex justify="space-between" align="center">
         <Text fontSize={{ base: "xl", xl: "2xl" }} fontWeight={600}>
           {title}
